@@ -51,6 +51,22 @@ class PresetSectionProvider
         ));
     }
 
+    public static function blogGrid($limit = 3)
+    {
+        $blogs = \App\Blogs::take($limit)->where("id_company", env("ID_COMPANY"))->get();
+        foreach ($blogs as $post)
+        {
+            $date = new \DateTime($post->created_at);
+            $post->createdAt = $date->format("d F Y");
+            $image = \App\BlogsImages::where("id_blog", $post->id)->orderBy("order", "ASC")->first();
+            $post->desc = substr($post->description, 0, 70)."...";
+            $post->image = (is_object($image)) ? env("GOOGLE_CLOUD_PUBLIC_ACCESS").$image->path : "images/resource/news-1.jpg";
+        }
+        return view("presets/blogGrid", array(
+            "blogs" => $blogs
+        ));
+    }
+
     public static function contactSection()
     {
         $company = \App\Companies::where("id", env('ID_COMPANY'))->first();
