@@ -53,7 +53,7 @@
 														<a href="{{ url('PropertyRentals') }}">Expert Rental Services</a>
 													</li>
 													<li>
-														<a href="{{ url('PropertyMaintanence') }}">Property Maintanence</a>
+														<a href="{{ url('PropertyMaintenence') }}">Property Maintanence</a>
 													</li>
 												</ul>
 											</li>
