@@ -375,11 +375,6 @@ class AdminPropertiesController extends BaseController
 
         $where = " 1 ";
         $where .= " AND properties.id_company = ".$this->user->id_company." ";
-
-        if ( $this->user->role == "M" )
-        {
-            $where .= " AND id_assigned_to = ".$this->user->id." ";
-        }
         if ( $this->user->role == "PO" )
         {
             $where .= " AND id_property_owner = ".$this->user->id." ";

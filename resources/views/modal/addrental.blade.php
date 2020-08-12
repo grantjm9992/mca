@@ -14,15 +14,15 @@
               <input type="text" name="id_property" value="{{ $id_property }}" hidden >
               <div class="form-group col-12">
                 <label for="">Name</label>
-                <input type="text" name="name" class="form-control">
+                <input type="text" name="name" class="form-control" required>
               </div>
               <div class="form-group col-12">
                 <label for="">Surname</label>
-                <input type="text" name="surname" class="form-control">
+                <input type="text" name="surname" class="form-control" required>
               </div>
               <div class="form-group col-12">
                 <label for="">Email</label>
-                <input type="text" name="email" class="form-control">
+                <input type="text" name="email" class="form-control" required>
               </div>
               <div class="form-group col-12">
                 <label for="">Phone</label>
@@ -37,6 +37,7 @@
                 <input type="text" name="date_end" id="date_end" class="form-control" required autocomplete="off">
               </div>
             </div>
+            <button type="submit" id="sbmt" hidden></button>
           </form>          
       </div>
       <div class="modal-footer">
@@ -97,6 +98,6 @@
 
   function submitRental()
   {
-    $("#taskForm").submit();
+    $("#sbmt").click();
   }
 </script>

@@ -17,7 +17,7 @@
               <div class="col-12 form-group">
                 <label for="user">Assigned to</label>
                 <div class="select2-purple">
-                    <select class="select2" multiple="multiple" data-placeholder="Select a State" name="assignedTo[]" id="assignedTo" data-dropdown-css-class="select2-purple" style="width: 100%;">
+                    <select class="select2" multiple="multiple" data-placeholder="Select a State" name="assignedTo[]" id="assignedTo" data-dropdown-css-class="select2-purple" style="width: 100%;" required>
                         @foreach( $users as $user )
                         <option value="{{ $user->id }}">{{ $user->name }} {{ $user->surname }}</option>
                         @endforeach
@@ -26,7 +26,7 @@
               </div>
               <div class="form-group col-12">
                 <label for="">Type of task</label>
-                <select name="id_type" id="id_type" class="form-control">
+                <select name="id_type" id="id_type" class="form-control" required>
                   @foreach ( $types as $type )
                     <option value="{{ $type->id }}">{{ $type->description }}</option>
                   @endforeach
@@ -94,6 +94,7 @@
             @isset( $_REQUEST["id_reservation"] )
               <input name="id_reservation" value="{{ $_REQUEST['id_reservation'] }}" hidden/>
             @endisset
+            <button type="submit" id="sbmt" hidden></button>
           </form>          
       </div>
       <div class="modal-footer">
@@ -151,6 +152,6 @@
 
   function submitTaskForm()
   {
-    $("#taskForm").submit();
+    $("#sbmt").click();
   }
 </script>
