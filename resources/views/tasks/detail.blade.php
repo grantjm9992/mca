@@ -297,6 +297,32 @@
 
     }
 
+    function deleteElement()
+    {
+        var options = Array();
+        options.type = "confirm";
+        options.title = "Warning";
+        options.text = "Are you sure you want to delete this task?";
+        options.thenFunction = confirmedDeleteTask;
+        sweetAlert( options );
+    }
+
+    function confirmedDeleteTask()
+    {
+        $.ajax({
+            type: "POST",
+            url: "Tasks.deleteSubtask",
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            data: {
+                id: '{{ $task->id }}'
+            },
+            success: function(data)
+            {
+                if (data == "OK") window.location.href = "Tasks";
+            }
+        })
+    }
+
     function confirmedDeleteSubtask(id_subtask)
     {
         

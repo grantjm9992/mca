@@ -347,6 +347,7 @@ class TasksController extends BaseController
     {
         $date = new \DateTime();
         $task = \App\Tasks::create( $_REQUEST );
+        if (isset($_REQUEST['date_end']) && $_REQUEST['date_end'] == '') $task->date_end = $_REQUEST['date_start'];
         $task->id_created_by = $_SESSION['id'];
         $task->id_company = $this->user->id_company;
         $task->created_on = $date->format('Y-m-d H:i:s');

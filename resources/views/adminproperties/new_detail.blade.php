@@ -21,6 +21,7 @@
 <div class="tab-content">
     <div class="tab-pane container-fluid px-5 active" id="general">
         <form action="AdminProperties.save" id="generalTab">
+            <input type="text" name="id" value="{{ $property->id }}" hidden>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 form-group">
@@ -223,7 +224,17 @@
             data: otaSettingsInfo,
             success: function(data)
             {
-                $('#generalTab').submit();
+                var required = $('[required]');
+                var valid = true;
+                for (var i = 0; i < required.length; i++)
+                {
+                    if ($(required[i]).val() == "")
+                    {
+                        $(required[i]).addClass('error');
+                        valid = false;
+                    }
+                }
+                if (valid) $('#generalTab').submit();
             }
         })
         /*
