@@ -12,31 +12,6 @@
   margin-bottom: 10px;
 }
 
-.file-card {
-  width: 90%;
-  margin: 10px 5%;
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px 13px;
-}
-
-.file-card .title {
-  width: 100%;
-  word-break: break-all;
-  height: 60px;
-  overflow: hidden;
-}
-
-.file-card .btn {
-  width: 100%;
-}
-
-
-input.error {
-  border: 1px solid rgba(255,0,0,.1);
-  box-shadow: 0 0 2px 0 rgba(255,0,0,.1);
-}
-
 .sortable-title
 {
   width: calc( 100% - 80px );
